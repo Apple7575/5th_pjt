@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3 class="my-4">도서 상세 페이지</h3>
+  
+  <h2 class="mb-3">{{ book.title }}</h2>
+  
+  <p>{{ book.description|linebreaksbr }}</p>
+  
+  <p class="mb-1">회원 리뷰 평점 : {{ book.rating }} / 10</p>
+  <p class="mb-4">{{ book.author }}</p>
+
+  <div class="d-flex gap-2 mb-4">
+    <a href="{% url 'books:update' book.pk %}" class="btn btn-secondary btn-sm">UPDATE</a>
+    
+    <form action="{% url 'books:delete' book.pk %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('정말 삭제하시겠습니까?');">DELETE</button>
+    </form>
+  </div>
+
+  <hr class="mb-4">
+
+  <a href="{% url 'books:index' %}" class="btn btn-primary btn-sm">BACK</a>
+{% endblock content %}
