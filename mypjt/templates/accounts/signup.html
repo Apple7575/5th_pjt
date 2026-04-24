@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>회원가입</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <p>
+      <label for="{{ form.username.id_for_label }}">Username:</label>
+      {{ form.username }}
+    </p>
+
+    <p>
+      <label for="{{ form.password1.id_for_label }}">Password:</label>
+      {{ form.password1 }}
+    </p>
+
+    <p>
+      <label for="{{ form.password2.id_for_label }}">Password confirmation:</label>
+      {{ form.password2 }}
+    </p>
+
+    <button type="submit" class="btn btn-primary">회원가입</button>
+  </form>
+{% endblock content %}
