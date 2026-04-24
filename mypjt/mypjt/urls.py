@@ -1,5 +1,9 @@
 """
+<<<<<<< HEAD
 URL configuration for mypjt project.
+=======
+URL configuration for firstpjt project.
+>>>>>>> develop
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -15,13 +19,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# mypjt/urls.py
-
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('books.urls')),
-    path('accounts/', include('accounts.urls')),
+
+    path('accounts/', include('accounts.urls')), # accounts 앱 연결
+    path('books/', include('books.urls')),
 ]
+
